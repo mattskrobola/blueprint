@@ -139,6 +139,15 @@ export interface ITableProps extends Props, IRowHeights, IColumnWidths {
     forceRerenderOnSelectionChange?: boolean;
 
     /**
+     * The number of rows/cols that we expand beyond the
+     * viewport (on all sides). This helps avoid displaying an empty
+     * viewport when the user scrolls quickly.
+     *
+     * @default Grid.DEFAULT_BLEED
+     */
+    gridBleed?: number;
+
+    /**
      * If defined, this callback will be invoked for each cell when the user
      * attempts to copy a selection via `mod+c`. The returned data will be copied
      * to the clipboard and need not match the display value of the `<Cell>`.

@@ -71,6 +71,7 @@ export class Table2 extends AbstractComponent2<TableProps, TableState, TableSnap
         enableMultipleSelection: true,
         enableRowHeader: true,
         forceRerenderOnSelectionChange: false,
+        gridBleed: Grid.DEFAULT_BLEED,
         loadingOptions: [],
         minColumnWidth: 50,
         minRowHeight: 20,
@@ -927,9 +928,9 @@ export class Table2 extends AbstractComponent2<TableProps, TableState, TableSnap
 
     private validateGrid() {
         if (this.grid == null) {
-            const { defaultRowHeight, defaultColumnWidth } = this.props;
+            const { defaultRowHeight, defaultColumnWidth, gridBleed } = this.props;
             const { rowHeights, columnWidths } = this.state;
-            this.grid = new Grid(rowHeights, columnWidths, Grid.DEFAULT_BLEED, defaultRowHeight, defaultColumnWidth);
+            this.grid = new Grid(rowHeights, columnWidths, gridBleed, defaultRowHeight, defaultColumnWidth);
             this.invokeOnVisibleCellsChangeCallback(this.state.viewportRect);
             this.hotkeysImpl.setGrid(this.grid);
         }
